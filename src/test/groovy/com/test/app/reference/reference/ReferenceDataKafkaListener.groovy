@@ -12,10 +12,10 @@ import java.util.concurrent.ConcurrentHashMap
         threads = 1
 )
 class ReferenceDataKafkaListener {
-    Map<String, byte[]> messages = new ConcurrentHashMap<>()
+    Map<String, String> messages = new ConcurrentHashMap<>()
 
     @Topic('${application.kafka.reference-data.topic}')
-    void onMessage(ConsumerRecord<String, byte[]> record) {
+    void onMessage(ConsumerRecord<String, String> record) {
         messages[record.key()] = record.value()
     }
 }

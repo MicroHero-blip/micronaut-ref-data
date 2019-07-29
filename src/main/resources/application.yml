@@ -1,13 +1,5 @@
 ---
 application:
-  identity:
-    url: http://localhost:9090
-    clientid: clientid
-    username: username
-    password: password
-    maxTimeForCall: 5000
-    timeBetweenRetries: 1000
-  # TODO: might be better do divide them by publishers and consumers
   kafka:
     reference-data:
       topic: reference-data

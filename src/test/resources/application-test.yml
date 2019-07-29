@@ -1,22 +1,4 @@
 ---
-application:
-  identity:
-    url: http://localhost:${micronaut.server.port}
-    clientid: clientid
-    username: username
-    password: password
-    maxTimeForCall: 50
-    timeBetweenRetries: 500
-  magicpipe:
-    url: http://localhost:${micronaut.server.port}
-    timeBetweenRetries: 0
-    price:
-      stores:
-        - GB:02065
-  price:
-    url: http://localhost:${micronaut.server.port}
-    timeBetweenRetries: 0
----
 micronaut:
   server:
     port: ${random.port}

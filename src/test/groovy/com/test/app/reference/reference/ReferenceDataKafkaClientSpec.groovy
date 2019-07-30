@@ -17,16 +17,13 @@ class ReferenceDataKafkaClientSpec extends Specification {
     ReferenceDataKafkaListener refDataListener
 
     def 'Publishing to reference-data topic'() {
-        given:
-        def content = "Text"
-
         when: "Message is send to reference data"
-        refData.send("1", content)
+        refData.send("1", "test this")
 
         then: "Then the price is not send to reference data topic"
         conditions.eventually {
             refDataListener.messages.containsKey("1")
-            refDataListener.messages["1"] == content
+            refDataListener.messages["1"] == [31, -117, 8, 0, 0, 0, 0, 0, 0, 0, 43, 73, 45, 46, 81, 40, -55, -56, 44, 6, 0, -10, -33, 21, -128, 9, 0, 0, 0]
         }
     }
 }
